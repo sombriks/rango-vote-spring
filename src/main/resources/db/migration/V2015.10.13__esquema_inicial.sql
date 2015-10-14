@@ -22,9 +22,11 @@ create table equipe(
 -- temos membros (o 'profissional faminto' da estória 1)
 create table membro(
   idmembro serial primary key,
+  idequipe integer not null,
   emailmembro varchar(255) not null,
   hashsenhamembro varchar(255) not null,
-  fotomembro bytea
+  fotomembro bytea,
+  foreign key (idequipe) references equipe(idequipe)
 );
 
 -- temos votos

@@ -1,0 +1,17 @@
+angular.module("rango-vote").config(function($routeProvider){
+  $routeProvider.when("/t103-votacao",{
+    templateUrl:"../views/t103-votacao.html",
+    controller:function($scope,$timeout,votingservice){
+      $timeout(function(){
+        votingservice.list
+      },500);
+      $scope.filtro={
+        restaurantes:""
+      };
+      $scope.filtrarest=function(){
+        console.debug($scope.filtro)
+      };
+      $scope.restaurantes=[];
+    }
+  });
+});

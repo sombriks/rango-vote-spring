@@ -7,6 +7,5 @@ angular.module("rango-vote")//
       }).catch(function(err){
         console.debug(err);
       });
-
     },500);
 });

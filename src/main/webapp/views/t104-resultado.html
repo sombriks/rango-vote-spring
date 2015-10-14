@@ -1,0 +1,11 @@
+<div layout="column" layout-margin layout-fill>
+  <h1>Resultado</h1>
+  <md-radio-group ng-model="filtro.grupo" layout="row">
+    <md-radio-button ng-value="'geral'" aria-label='geral'>Geral</md-radio-button>
+      <md-radio-button ng-value="'equipe'" aria-label='geral'>Minha equipe</md-radio-button>
+  </md-radio-group>
+  <div layout="column" layout-margin class="md-whiteframe-5dp"
+    flex="33" ng-repeat="res in resultados">
+
+  </div>
+</div>

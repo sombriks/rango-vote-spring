@@ -18,12 +18,11 @@
     <script type="text/javascript" src="../js/service/member.js"></script>
     <script type="text/javascript" src="../js/service/restaurant.js"></script>
     <script type="text/javascript" src="../js/service/voting.js"></script>
-    <script type="text/javascript" src="../js/t102.js"></script>
-    <script type="text/javascript" src="../js/t103.js"></script>
-    <script type="text/javascript" src="../js/t104.js"></script>
-    <script type="text/javascript" src="../js/t106.js"></script>
-    <script type="text/javascript" src="../js/t107.js"></script>
-    <script type="text/javascript" src="../js/t108.js"></script>
+    <script type="text/javascript" src="../js/t102-votacao-resultado.js"></script>
+    <script type="text/javascript" src="../js/t103-votacao.js"></script>
+    <script type="text/javascript" src="../js/t104-resultado.js"></script>
+    <script type="text/javascript" src="../js/t106-detalhe-restaurante.js"></script>
+    <script type="text/javascript" src="../js/t107-equipe.js"></script>
   </head>
   <body ng-app="rango-vote" ng-controller="t102 as ctl">
     <div layout="column" layout-margin layout-fill>
@@ -39,7 +38,7 @@
         <div layout="column" flex="75">
           <div layout="row" layout-align="end center">
             <md-button class="md-raised md-primary" ng-href="#/logout" ng-show="ctl.membro">Sair</md-button>
-            <md-button class="md-raised md-primary" ng-href="#/login" ng-hide="ctl.membro">Entrar</md-button>
+            <md-button class="md-raised md-primary" ng-href="t101-login-membro.html" ng-hide="ctl.membro">Entrar</md-button>
           </div>
           <div  layout="column" ng-show="ctl.membro">
             {{ctl.membro.nomemebro}}
@@ -53,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div layout="column" flex="75" class="md-whiteframe-5dp">
+      <div layout="column" flex="75" layout-margin class="md-whiteframe-5dp">
         <ng-view></ng-view>
       </div>
     </div>

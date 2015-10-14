@@ -5,6 +5,3 @@ angular.module("rango-vote",[
   "ngAria",
   "ngAnimate"
 ]);
-angular.module("rango-vote").config(function($locationProvider){
-  $locationProvider.html5Mode(true);
-});
