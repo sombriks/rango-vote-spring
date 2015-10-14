@@ -7,6 +7,7 @@
   xmlns:aop="http://www.springframework.org/schema/aop"
   xmlns:jee="http://www.springframework.org/schema/jee"
   xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="
   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
@@ -15,15 +16,14 @@
   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
   http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-
-  <jee:jndi-lookup jndi-name="jdbc/rango-vote-ds" id="dataSource" />
-
+  <!-- let's keet this xml as clean as posible -->
   <mvc:annotation-driven />
+  <context:annotation-config />
+  <context:component-scan base-package="rango.vote" />
+  <!-- we'll need tasks to open and close voting -->
   <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
   <task:executor id="myExecutor" pool-size="5"/>
   <task:scheduler id="myScheduler" pool-size="10"/>
-  <context:annotation-config />
-  <context:component-scan base-package="rango.vote" />
   <!-- enable the configuration of transactional behavior based on annotations -->
   <tx:annotation-driven transaction-manager="txManager"/>
   <!-- a PlatformTransactionManager is still required -->
@@ -31,4 +31,6 @@
     <!-- (this dependency is defined somewhere else) -->
     <property name="dataSource" ref="dataSource"/>
   </bean>
+  <!-- connection info must be set at the container level -->
+  <jee:jndi-lookup jndi-name="jdbc/rango-vote-ds" id="dataSource" />
 </beans>
