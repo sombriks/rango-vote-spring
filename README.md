@@ -1,6 +1,9 @@
 # rango-vote-spring
 sample project showcasing one or two cool technologies
 
+- a few screen templates where developed, the app development used it as
+  orientation, not as an rulebook. The templates can be seen in the docs folder
+
 - the gradle file (using gradle 2.7 from command line) have embedded tomcat
   support with datasource configured in the jndi context
 
@@ -20,5 +23,5 @@ sample project showcasing one or two cool technologies
 
 - angular-material where added to provide a little better look
 
-- a few screen templates where developed, the app development used it as
-  orientation, not as an rulebook. The templates can be seen in the docs folder
+- in order to get client side libraries, bower where used. using it i sped up
+  the browser part of this party.
