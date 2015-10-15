@@ -27,3 +27,13 @@ sample project showcasing one or two cool technologies
 
 - in order to get client side libraries, bower where used. using it i sped up
   the browser part of this party
+
+# how to execute this project
+to execute you'll need the following softwares available on your machine:
+
+- jdk 8 installed and availalbe from command line
+
+- gradle 2.7 present on system $PATH
+
+- postgresql 9.2 or newer. the database must have the rango-vote schema created
+  with username postgres and password postgres

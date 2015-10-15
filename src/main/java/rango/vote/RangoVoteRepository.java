@@ -1,5 +1,6 @@
 package rango.vote;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import rango.vote.model.ResultadoVotacao;
 import rango.vote.model.Restaurante;
 import rango.vote.model.Membro;
 import rango.vote.model.Voto;
@@ -42,5 +44,11 @@ public class RangoVoteRepository {
   @Transactional
   public void vote(Voto voto) throws Exception {
     em.persist(voto);
+  }
+
+  public List<ResultadoVotacao>listResultadoVotacao(Date dtResultado) throws Exception {
+    String q = "select r from ResultadoVotacao r where r.dtVoto = :dtResultado";
+    return em.createQuery(q,ResultadoVotacao.class)//
+      .setParameter("dtResultado",dtResultado).getResultList();
   }
 }

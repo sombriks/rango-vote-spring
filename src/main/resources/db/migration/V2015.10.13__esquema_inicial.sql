@@ -54,3 +54,14 @@ create table administrador(
   emailadministrador varchar(255) not null,
   hashsenhaadministrador varchar(255) not null
 );
+
+-- view com o resultado das votações
+create view vw_resultado_votacao as select
+  dtvoto,idrestaurante,count(idmembro) as totvotos
+from
+  voto
+group by
+  dtvoto,idrestaurante
+order by
+  totvotos desc
+limit 3;

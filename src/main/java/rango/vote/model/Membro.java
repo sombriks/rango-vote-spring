@@ -21,6 +21,4 @@ public class Membro {
   @JoinColumn(name="idequipe")
   private Equipe equipe;
 
-
-
 }

@@ -9,6 +9,7 @@
      <class>rango.vote.model.Restaurante</class>
      <class>rango.vote.model.Equipe</class>
      <class>rango.vote.model.Membro</class>
+     <class>rango.vote.model.ResultadoVotacao</class>
      <class>rango.vote.model.Voto</class>
   </persistence-unit>
 </persistence>

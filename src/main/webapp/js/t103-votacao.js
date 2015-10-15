@@ -20,25 +20,30 @@ angular.module("rango-vote").config(function($routeProvider){
         });
       }
 
-      $timeout(list,500);
       $timeout(function(){
-        memberservice.getCurrentMember().then(function(ret){
-          $scope.membro=ret.data;
+        votingservice.getVotingStatus().then(function(ret){
+          $scope.votingstatus=ret.data;
+          $scope.membro = $scope.votingstatus.membro;
         }).catch(function(err){
           console.debug(err);
         });
+        list();
       },500)
 
       $scope.votaRestaurante=function(restaurante){
         if($scope.membro){
+
           if(confirm("Confirma voto no restaurante ["+restaurante.nomeRestaurante+"] ?")){
             votingservice.vote({
               restaurante:restaurante,
               membro:$scope.membro,
             }).then(function(ret){
-              
+              window.loaction.reload();
             }).catch(function(err){
-              alert("Problema ao votar. Você já votou hoje?");
+              if("voteclosed" == err.data)
+                alert("A votação não está aberta no momento.");
+              else
+                alert("Problema ao votar. Você já votou hoje?");
               console.debug(err);
             });
           }

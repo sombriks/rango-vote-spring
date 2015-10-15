@@ -18,4 +18,10 @@ angular.module("rango-vote").service("votingservice",function($http){
       method:"POST"
     });
   };
+  this.listResultadoVotacao=function(){
+    return $http({
+      url:"../app/controller/listResultadoVotacao",
+      method:"GET"
+    });
+  };
 });

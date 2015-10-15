@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.stereotype.Controller;
 
+import rango.vote.model.ResultadoVotacao;
+import rango.vote.model.Restaurante;
 import rango.vote.to.VotingStatus;
 import rango.vote.model.Membro;
-import rango.vote.model.Restaurante;
 import rango.vote.model.Voto;
 
 @Controller
@@ -74,11 +75,20 @@ public class RangoVoteController {
   }
 
   @RequestMapping(value="/vote",produces="text/plain")
-  public @ResponseBody String vote(@RequestBody Voto voto) throws Exception {
-    // System.out.println(voto);
+  public @ResponseBody String vote(@RequestBody Voto voto,HttpServletResponse response) throws Exception {
     Date d = new Date(System.currentTimeMillis());
-    voto.setDtVoto(d);
-    repo.vote(voto);
-    return "OK - "+d;
+    if(task.isVotingOpen()){
+      voto.setDtVoto(d);
+      repo.vote(voto);
+      return "OK";
+    }else{
+      response.setStatus(404);
+      return "voteclosed";
+    }
+  }
+
+  @RequestMapping("/listResultadoVotacao")
+  public @ResponseBody List<ResultadoVotacao>listResultadoVotacao() throws Exception {
+    return repo.listResultadoVotacao(new Date(System.currentTimeMillis()));
   }
 }

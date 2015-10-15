@@ -12,11 +12,13 @@ angular.module("rango-vote").config(function($routeProvider){
           $scope.votingstatus=ret.data;
         }).catch(function(err){
           console.debug(err);
-        });;
+        });
+        votingservice.listResultadoVotacao().then(function(ret){
+          $scope.resultados=ret.data;
+        }).catch(function(err){
+          console.debug(err);
+        });
       },500);
-      $scope.doVote=function(){
-        
-      };
     }
   });
 });
