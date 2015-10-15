@@ -7,7 +7,9 @@ sample project showcasing one or two cool technologies
 - the gradle file (using gradle 2.7 from command line) have embedded tomcat
   support with datasource configured in the jndi context
 
-- database migrations managed by flyway (because sql is good for the blood)
+- database migrations managed by flyway (because sql is good for the blood). The
+  RDBMS used is postgresql, the user and password needed can be seen in
+  build.gradle and context.xml as well
 
 - jpa entities where mapped in a way that json serialization will not blow up
   because of circular references
@@ -24,4 +26,4 @@ sample project showcasing one or two cool technologies
 - angular-material where added to provide a little better look
 
 - in order to get client side libraries, bower where used. using it i sped up
-  the browser part of this party.
+  the browser part of this party
