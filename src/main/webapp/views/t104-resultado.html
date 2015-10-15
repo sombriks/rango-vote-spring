@@ -1,5 +1,8 @@
 <div layout="column" layout-margin layout-fill>
   <h1>Resultado</h1>
+  <div layout="row" layout-align="center center">
+    <h3 ng-class="{'votingclosed':!votingstatus.votingOpen,'votingopen':votingstatus.votingOpen}">{{votingstatus.dia}}</h3>
+  </div>
   <md-radio-group ng-model="filtro.grupo" layout="row">
     <md-radio-button ng-value="'geral'" aria-label='geral'>Geral</md-radio-button>
       <md-radio-button ng-value="'equipe'" aria-label='geral'>Minha equipe</md-radio-button>

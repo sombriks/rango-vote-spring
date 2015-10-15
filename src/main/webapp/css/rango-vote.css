@@ -1,3 +1,12 @@
 body{
   height:100%;
 }
+
+.votingclosed{
+  color:blue;
+  display:inline-block;
+}
+.votingopen{
+  color:green;
+  display:inline-block;
+}

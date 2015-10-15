@@ -23,6 +23,19 @@
   <context:annotation-config />
   <context:component-scan base-package="rango.vote" />
 
+  <mvc:annotation-driven>
+    <mvc:message-converters>
+      <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+      <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+
+  <!-- uporte in-app para as migrações do esquema de banco -->
+  <jee:jndi-lookup jndi-name="jdbc/rango-vote-ds" id="dataSource" />
+  <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+
   <!-- we'll need tasks to open and close voting -->
   <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
   <task:executor id="myExecutor" pool-size="5"/>

@@ -1,13 +1,18 @@
-<div layout="column" layout-margin layout-fill>
-  <h1>Votação</h1>
-  <md-input-container>
+<div layout="column" layout-margin>
+  <h1 flex="10">Votação</h1>
+  <md-input-container flex="20">
     <label>Filtrar restaurantes</label>
-    <input ng-model="filtro.restaurantes" ng-change="filtrarest()">
+    <input ng-model="filtro.nomerest" ng-change="filtrarest()">
   </md-input-container>
-  <md-grid-list md-cols="3" md-gutter="1em" md-row-height="1:1">
-    <md-grid-tile ng-hide="restaurantes.length" md-colspan="3">Nenhum restaurante encontrado</md-grid-tile>
+  <!-- <div flex="70" layout="row" layout-margin layout-padding layout-wrap>
+    <div flex="95" ng-hide="restaurantes.length">
+
+    </div>
+  </div> -->
+  <md-grid-list flex="70" md-cols="3" md-gutter="10px" md-row-height="1:1" class="md-whiteframe-5dp">
     <md-grid-tile ng-repeat="res in restaurantes">
       {{res}}
     </md-grid-tile>
+    <md-grid-tile ng-hide="restaurantes.length" md-colspan="3">Nenhum restaurante encontrado</md-grid-tile>
   </md-grid-list>
 </div>
