@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../js/t106-detalhe-restaurante.js"></script>
     <script type="text/javascript" src="../js/t107-equipe.js"></script>
   </head>
-  <body ng-app="rango-vote" ng-controller="t102 as ctl">
+  <body ng-app="rango-vote" ng-controller="t102">
     <div layout="column" layout-margin layout-fill>
       <div layout="column" layout-margin layout-align="center center" flex="10">
           <h1>Rango Vote</h1>
@@ -33,12 +33,12 @@
       <div layout="row" layout-margin flex="20" class="md-whiteframe-5dp">
         <div layout="column" layout-margin flex="20">
         <!-- <img ng-src="" flex="20 "/> -->
-          <i class="fa fa-user fa-5x" ng-hide="ctl.membro"></i>
+          <i class="fa fa-user fa-5x" ng-hide="membro"></i>
         </div>
         <div layout="column" flex="75">
           <div layout="row" layout-align="end center">
-            <md-button class="md-raised md-primary" ng-href="#/logout" ng-show="ctl.membro">Sair</md-button>
-            <md-button class="md-raised md-primary" ng-href="t101-login-membro.html" ng-hide="ctl.membro">Entrar</md-button>
+            <md-button class="md-raised md-primary" ng-click="logout()" ng-show="membro">Sair</md-button>
+            <md-button class="md-raised md-primary" ng-href="t101-login-membro.html" ng-hide="membro">Entrar</md-button>
           </div>
           <div  layout="column" ng-show="ctl.membro">
             {{ctl.membro.nomemebro}}

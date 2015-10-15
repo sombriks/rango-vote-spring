@@ -36,7 +36,7 @@ create table voto(
   idmembro integer not null,
   foreign key (idrestaurante) references restaurante(idrestaurante),
   foreign key (idmembro) references membro(idmembro),
-  primary key (dtvoto,idrestaurante,idmembro)
+  primary key (dtvoto,idmembro)
 );
 
 -- tabela com os ganhadores, pra facilitar a estória 2

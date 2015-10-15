@@ -1,1 +1,63 @@
-<h1>Login membro</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+    https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+    * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!-- Enable all requests, inline styles, and eval() -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'">
+    <meta charset="UTF-8"/>
+    <title>Rango Vote - o modo democrático de escolher onde comer</title>
+    <!-- dependencies -->
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.layouts.min.css"/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"/>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="../bower_components/blueimp-md5/js/md5.min.js"></script>
+    <!-- app related -->
+    <link rel="stylesheet" href="../css/rango-vote.css"/>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/service/member.js"></script>
+    <script type="text/javascript" src="../js/t101-login-membro.js"></script>
+  </head>
+  <body ng-app="rango-vote" ng-controller="t101"
+    layout="row" layout-fill layout-align="center center">
+    <form name="loginForm" class="md-whiteframe-5dp" ng-submit="doLogin()"
+      layout="column" layout-margin layout-padding flex="30">
+      <h1>Rango Vote</h1>
+      <md-input-container>
+        <label>Email</label>
+        <input name="emailMembro" ng-model="membro.emailMembro" type="email" required>
+        <div ng-messages="loginForm.emailMembro.$error" role="alert"
+          ng-show="loginForm.emailMembro.$dirty && loginForm.emailMembro.$invalid">
+          <div ng-message="required">Informe email</div>
+        </div>
+      </md-input-container>
+      <md-input-container>
+        <label>Senha</label>
+        <input name="senhaMembro" ng-model="membro.hashSenhaMembro" type="password" required>
+        <div ng-messages="loginForm.senhaMembro.$error" role="alert"
+          ng-show="loginForm.senhaMembro.$dirty && loginForm.senhaMembro.$invalid">
+          <div ng-message="required">Informe senha</div>
+        </div>
+      </md-input-container>
+      <div layout="row" layout-align="center center">
+        <md-button type="submit" class="md-raised md-primary">Login</md-button>
+      </div>
+      <div layout="column" layout-margin layout-align="center center">
+        <md-button type="button" ng-click="esqueciSenha()">Esqueci a senha</md-button>
+        <md-button ng-href="t108-cadastro-membro.html">Sou novo aqui</md-button>
+      </div>
+    </form>
+  </body>
+</html>

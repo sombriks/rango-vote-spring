@@ -6,8 +6,9 @@
   <persistence-unit name="rango-vote-pu" transaction-type="RESOURCE_LOCAL">
      <non-jta-data-source>java:comp/env/jdbc/rango-vote-ds</non-jta-data-source>
      <class>rango.vote.model.Administrador</class>
+     <class>rango.vote.model.Restaurante</class>
      <class>rango.vote.model.Equipe</class>
      <class>rango.vote.model.Membro</class>
-     <class>rango.vote.model.Restaurante</class>
+     <class>rango.vote.model.Voto</class>
   </persistence-unit>
 </persistence>

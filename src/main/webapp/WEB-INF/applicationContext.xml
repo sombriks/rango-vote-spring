@@ -43,8 +43,10 @@
 
   <!-- JPA EntityManager injection support -->
   <bean id="entityManagerFactory"
-    class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" />
-  <bean class="org.springframework.orm.jpa.JpaTransactionManager">
+    class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+    <property name="persistenceUnitName" value="rango-vote-pu" />
+  </bean>
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="entityManagerFactory" />
   </bean>
   <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />

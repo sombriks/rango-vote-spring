@@ -4,6 +4,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="restaurante")
 public class Restaurante {
@@ -12,19 +15,4 @@ public class Restaurante {
   private long idRestaurante;
   private String nomeRestaurante;
 
-  public long getIdRestaurante(){
-    return idRestaurante;
-  }
-
-  public void setIdRestaurante(long idRestaurante){
-    this.idRestaurante=idRestaurante;
-  }
-
-  public String getNomeRestaurante(){
-    return nomeRestaurante;
-  }
-
-  public void setNomeRestaurante(String nomeRestaurante){
-    this.nomeRestaurante=nomeRestaurante;
-  }
 }

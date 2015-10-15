@@ -11,4 +11,11 @@ angular.module("rango-vote").service("votingservice",function($http){
       method:"GET"
     });
   };
+  this.vote=function(vote){
+    return $http({
+      url:"../app/controller/vote",
+      data:JSON.stringify(vote),
+      method:"POST"
+    });
+  };
 });

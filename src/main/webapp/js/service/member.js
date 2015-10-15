@@ -6,4 +6,11 @@ angular.module("rango-vote").service("memberservice",function($http){
       method:"GET",
     });
   };
+  this.login=function(membro){
+    return $http({
+      url:"../app/controller/login",
+      data:JSON.stringify(membro),
+      method:"POST",
+    });
+  };
 });
