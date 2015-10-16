@@ -8,8 +8,14 @@
     <md-radio-button ng-value="'geral'" aria-label='geral'>Geral</md-radio-button>
       <md-radio-button ng-value="'equipe'" aria-label='geral'>Minha equipe</md-radio-button>
   </md-radio-group> -->
-  <div layout="column" layout-margin class="md-whiteframe-5dp"
-    flex="33" ng-repeat="res in resultados">
-    {{res}}
+  <div layout="row" layout-margin class="md-whiteframe-5dp"
+    flex="33" ng-repeat="res in resultados" layout-align="center center">
+    <div flex="33">
+      <a ng-href="#/t106-detalhe-restaurante">{{res.restaurante.nomeRestaurante}}</a>
+    </div>
+    <div flex="25">
+      <span ng-show="res.totVotos">{{res.totVotos}} voto<span ng-show="res.totVotos>1">s</span></span>
+      <span ng-hide="res.totVotos">Nenhum voto</span>
+    </div>
   </div>
 </div>

@@ -32,7 +32,6 @@ angular.module("rango-vote").config(function($routeProvider){
 
       $scope.votaRestaurante=function(restaurante){
         if($scope.membro){
-
           if(confirm("Confirma voto no restaurante ["+restaurante.nomeRestaurante+"] ?")){
             votingservice.vote({
               restaurante:restaurante,

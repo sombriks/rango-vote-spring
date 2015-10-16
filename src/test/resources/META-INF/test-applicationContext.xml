@@ -30,21 +30,27 @@
     </mvc:message-converters>
   </mvc:annotation-driven>
 
-  <!-- uporte in-app para as migrações do esquema de banco -->
-  <jee:jndi-lookup jndi-name="jdbc/rango-vote-ds" id="dataSource" />
+  <!-- suporte in-app para as migrações do esquema de banco -->
+  <!-- <jee:jndi-lookup jndi-name="jdbc/rango-vote-ds" id="dataSource" /> -->
+  <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="org.postgresql.Driver" />
+    <property name="url" value="jdbc:postgresql://localhost:5432/rango-vote" />
+    <property name="username" value="postgres" />
+    <property name="password" value="postgres" />
+  </bean>
   <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
     <property name="dataSource" ref="dataSource"/>
   </bean>
 
   <!-- we'll need tasks to open and close voting -->
-  <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
-  <task:executor id="myExecutor" pool-size="5"/>
-  <task:scheduler id="myScheduler" pool-size="10"/>
+  <!-- <task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
+  <task:executor id="myExecutor" pool-size="0"/>
+  <task:scheduler id="myScheduler" pool-size="0"/> -->
 
   <!-- JPA EntityManager injection support -->
   <bean id="entityManagerFactory"
     class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-    <property name="persistenceUnitName" value="rango-vote-pu" />
+    <property name="persistenceUnitName" value="rango-vote-pu-test" />
   </bean>
   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="entityManagerFactory" />

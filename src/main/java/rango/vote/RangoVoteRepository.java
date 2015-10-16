@@ -51,4 +51,9 @@ public class RangoVoteRepository {
     return em.createQuery(q,ResultadoVotacao.class)//
       .setParameter("dtResultado",dtResultado).getResultList();
   }
+
+  public List<String>listMemberMail() throws Exception {
+    String q = "select m.emailMembro from Membro m";
+    return em.createQuery(q,String.class).getResultList();
+  }
 }
