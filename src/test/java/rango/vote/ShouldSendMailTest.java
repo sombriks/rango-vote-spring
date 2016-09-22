@@ -21,11 +21,11 @@ public class ShouldSendMailTest {
 
   @Test
   public void sendMeSomeTest() throws Exception {
-    List<String> emails = new ArrayList<>();
-    emails.add("sombriks@gmail.com");
-    String subject = "teste";
-    String text = "teste";
-    mail.doSend(subject,text,emails);
+    // List<String> emails = new ArrayList<>();
+    // emails.add("sombriks@gmail.com");
+    // String subject = "teste";
+    // String text = "teste";
+    // mail.doSend(subject,text,emails);
   }
 
 }
