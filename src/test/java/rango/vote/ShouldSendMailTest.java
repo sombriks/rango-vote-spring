@@ -26,6 +26,7 @@ public class ShouldSendMailTest {
     // String subject = "teste";
     // String text = "teste";
     // mail.doSend(subject,text,emails);
+    //Só para testar
   }
 
 }
