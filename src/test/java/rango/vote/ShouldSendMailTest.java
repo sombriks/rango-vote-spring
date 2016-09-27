@@ -21,6 +21,7 @@ public class ShouldSendMailTest {
 
   @Test
   public void sendMeSomeTest() throws Exception {
+    int i = 0;
     // List<String> emails = new ArrayList<>();
     // emails.add("sombriks@gmail.com");
     // String subject = "teste";
