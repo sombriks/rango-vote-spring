@@ -12,16 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/META-INF/test-applicationContext.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("/META-INF/test-applicationContext.xml")
 public class ShouldSendMailTest {
 
-  @Autowired
+  //@Autowired
   private MailService mail;
 
   @Test
   public void sendMeSomeTest() throws Exception {
-    int i = 0;
     // List<String> emails = new ArrayList<>();
     // emails.add("sombriks@gmail.com");
     // String subject = "teste";
